@@ -29,9 +29,7 @@ while check_flag:
         print("It will try after 2 seconds")
         time.sleep(2)
 
-
 print("Binding : Clear")
-
 soc_server.listen(1)
 
 while True:
