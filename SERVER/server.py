@@ -7,6 +7,7 @@ while check_flag:
     try:
         soc_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         check_flag = False
+
     except Exception as e:
         check_flag = True
         print("Error while Open Socket :: %s" % e)
@@ -22,6 +23,7 @@ while check_flag:
     try:
         soc_server.bind(('0.0.0.0', 4000))
         check_flag = False
+
     except Exception as e:
         check_flag = True
         print("Error while Binding :: %s" % e)
@@ -48,12 +50,13 @@ while True:
     while True:
         try:
             data, addr = connection.recvfrom(1024)
+
         except Exception as e:
             print("Error : %s" % e)
             error_flag = True
             break
 
-        print("Receive Raw Data : ", data)
+        # print("Receive Raw Data : ", data)
 
         if file_name_flag is False:
             file_name = data
@@ -61,7 +64,7 @@ while True:
 
         else:
             file_data.append(data)
-            print("File : ", file_data)
+            # print("File : ", file_data)
             if len(data) < 1024:
                 break
 

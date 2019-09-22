@@ -8,6 +8,7 @@ while check_flag:
     try:
         soc_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         check_flag = False
+
     except Exception as e:
         check_flag = True
         print("Error while Open Socket :: %s" % e)
@@ -23,6 +24,7 @@ while check_flag:
     try:
         soc_client.connect(('127.0.0.1', 4000))
         check_flag = False
+
     except Exception as e:
         check_flag = True
         print("Error while Connect to Server :: %s" % e)
@@ -83,6 +85,5 @@ while True:
 
 for i in data_array:
     soc_client.send(i.encode('utf-8'))
-    print(i.encode('utf-8'))
 
 print("Send All Data")
